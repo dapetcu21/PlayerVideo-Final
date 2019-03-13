@@ -1,25 +1,67 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { Component ,createRef} from 'react';
 import './App.css';
 
+import Title from './Title.js'
+import Video from './Video.js'
+import Buttons from './Buttons.js'
+
+
 class App extends Component {
+
+  video = createRef()
+
+
+  constructor(){
+    super()
+
+    this.state = {
+      isPlaying : false,
+      volume : 0,
+    }
+
+    this.handleChangePlaying = this.handleChangePlaying.bind(this)
+  }
+
+  
+
+  handleChangePlaying = () => {
+        const video = this.video.current
+ 
+        if(this.state.isPlaying==true){
+            video.pause()
+        }
+        else{
+            video.play()
+        }
+
+        this.setState(prevState =>
+          ({
+            isPlaying :!(prevState.isPlaying)
+          }));
+  }
+
+  handleUpdateSound = () =>{
+        const video = this.video.current
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="Container">
+              <div>
+                   <Title title="MAX - Lights Down Low feat. gnash (Official Video)" />
+              </div>   
+
+              <div>
+                   <Video 
+                    ref={this.video}
+                    volume = {this.state.volume}
+                   />
+              </div>
+
+              <Buttons 
+              isPlaying = {this.state.isPlaying}
+              handleChangePlaying = {this.handleChangePlaying}
+              />      
       </div>
     );
   }

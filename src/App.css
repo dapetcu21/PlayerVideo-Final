@@ -1,33 +1,235 @@
-.App {
-  text-align: center;
+body{
+  margin: 0;
+  padding : 0;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.Container{
+  position: absolute;
+  top: 20%;
+  left: 25%;
+  width: 50%;
+  height: 60%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Container-Click{
+  position: absolute;
+  top: 10%;
+  bottom: 17%;
+  width: 100%;
+  z-index: 1;
+}
+
+.Container-Video{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%; 
+  overflow: hidden;
+}  
+
+.Container-Video video{
+  min-width: 100%; 
+  min-height: 100%; 
+
+  width: auto;
+  height: auto;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.Container-Titlu{
+  width: 100%;
+  min-height: 10%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  z-index:1;
+
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+
+  visibility:hidden;
+  opacity:0;
+  transition:visibility 0.3s linear,opacity 0.3s linear;
+}
+
+.Container-Buttons{
+  width: 100%;
+  height: 15%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  visibility:hidden;
+  opacity:0;
+  transition:visibility 0.3s linear,opacity 0.3s linear;
+  display: flex;
+}
+
+.Container:hover .Container-Buttons {
+  visibility:visible;
+  opacity:1;
+}
+
+.Container:hover .Container-Titlu{
+  visibility:visible;
+  opacity:1;
+}
+
+.Time{
   color: white;
+  font-size: 17px;
+  width : 40%;
+  display: inline-flex;
+  margin-top :auto;
+  margin-bottom: auto;
+  margin-left: 3%;
+  margin-right: 3%;
 }
 
-.App-link {
-  color: #61dafb;
+.Text-Titlu{
+  margin-left: 20px;
+  margin-top: 5px;
+  font-size: 20px;
+  color: white;
+  font-family: 'Encode Sans Condensed', sans-serif;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+i{
+  color:white;
+  width : 5%;
+  display: inline-flex;
+  margin-top : auto;
+  margin-bottom: auto;
+}
+
+.buttonImg{
+  display:inline-block;
+  color:white;
+  margin-left: 20px;
+  margin-bottom: 11px;
+  width: 25px;
+  height: 25px;
+}
+
+.bar{
+  position: absolute;
+  top: 0;
+  margin-left: 3%;
+  margin-right: 3%;
+  
+  opacity: 0.7;
+  width: 92%;
+  height: 5px; /*8%**/
+  display: flex;
+
+  -webkit-appearance: none;
+  border-radius: 6px;
+  background: white;
+  outline: none;
+
+}
+
+.bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: red;
+  cursor: pointer;
+}
+/*de aici */
+
+/*pana aici*/
+
+.ContainerVolume{
+  display: inline-flex;
+  margin-top: auto;
+  margin-bottom: auto; 
+}
+
+.volumeBar{
+  -webkit-appearance: none;
+  width: 70px;
+  height: 5px;
+  border-radius: 6px;
+  background: white;
+  outline: none;  
+}
+.volumeBar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+}
+
+.v{
+  display: inline-flex;
+  margin-top:auto;
+  margin-bottom: auto;
+}
+
+.v:hover + .ContainerVolume{
+  display: inline-flex;
+}
+
+video::-webkit-media-controls-enclosure {
+  display:none !important;
+}
+
+.MsgOnScreen{
+  position: absolute;
+  top: 45%;
+  bottom: 45%;
+  left: 45%;
+  right: 45%;
+}
+.imgOnScreen{
+  z-index: 1;
+  
+  width: 50px;
+  height: 50px;
+  visibility:hidden;
+  opacity:0;
+  transition:visibility 0.3s linear,opacity 0.3s linear;
+}
+
+
+@media only screen and (max-width: 900px) {
+  .Container{
+      left: 10%;
+      width: 80%;
   }
-  to {
-    transform: rotate(360deg);
+  .Container-Click{
+      bottom: 12%;
+  }
+
+  .Container-Buttons{
+     height: 10%;
+  }
+
+  i{
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+  .bar{
+     height: 4px;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  i{
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+}
+
