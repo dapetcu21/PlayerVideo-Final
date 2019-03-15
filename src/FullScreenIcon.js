@@ -56,9 +56,18 @@ class FullScreenIcon extends Component{
         else{
             closeFullscreen();
             let c = document.getElementsByClassName("Container")[0];
-            c.style.left = 25 + "%";
+            let click = document.getElementsByClassName("Container-Click")[0];
+            click.style.bottom = 17 + "%";
+            if(window.innerWidth < 900){
+              c.style.left = 10 + "%";
+              c.style.width = 80 + "%";
+            }
+            else{
+              c.style.left = 25 + "%";
+              c.style.width = 50 + "%";
+               
+            }
             c.style.top = 20 +"%";
-            c.style.width = 50 + "%";
             c.style.height = 60 + "%";
             this.setState
             ({
@@ -72,10 +81,18 @@ class FullScreenIcon extends Component{
 
     exitFullscreen = ()=>{
         if (!document.fullscreenElement && !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement){
-            let c = document.getElementsByClassName("Container")[0];
+          let c = document.getElementsByClassName("Container")[0];
+          let click = document.getElementsByClassName("Container-Click")[0];
+          click.style.bottom = 17 + "%";
+          if(window.innerWidth < 900){
+            c.style.left = 10 + "%";
+            c.style.width = 80 + "%";          
+          }
+          else{
             c.style.left = 25 + "%";
+            c.style.width = 50 + "%";           
+          }         
             c.style.top = 20 +"%";
-            c.style.width = 50 + "%";
             c.style.height = 60 + "%";
     
             this.setState

@@ -108,6 +108,10 @@ i{
   margin-bottom: auto;
 }
 
+i:hover{
+  color:silver;
+}
+
 .buttonImg{
   display:inline-block;
   color:white;
@@ -130,9 +134,13 @@ i{
 
   -webkit-appearance: none;
   border-radius: 6px;
-  background: white;
+  background-color: white;
   outline: none;
 
+}
+.bar:hover{
+  opacity: 0.5;
+  
 }
 
 .bar::-webkit-slider-thumb {
@@ -141,7 +149,7 @@ i{
   width: 11px;
   height: 11px;
   border-radius: 50%;
-  background: red;
+  background-color: red;
   cursor: pointer;
 }
 /*de aici */
@@ -202,7 +210,6 @@ video::-webkit-media-controls-enclosure {
   opacity:0;
   transition:visibility 0.3s linear,opacity 0.3s linear;
 }
-
 
 @media only screen and (max-width: 900px) {
   .Container{

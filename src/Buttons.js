@@ -5,6 +5,7 @@ import FullScreenIcon from './FullScreenIcon.js';
 import VolumeBar from './VolumeBar.js';
 import VolumeIcon from './VolumeIcon.js';
 import ProgressBar from './ProgressBar.js';
+import Time from './Time.js'
 
 
 class Buttons extends Component{
@@ -14,13 +15,27 @@ class Buttons extends Component{
     render(){
       return(
           <div className = "Container-Buttons"> 
-                <ProgressBar />
+                <ProgressBar 
+                currentTime = {this.props.currentTime}
+                videoDuration = {this.props.videoDuration}
+                UpdateProgressBar = {this.props.UpdateProgressBar}
+                />
                 <PlayButton 
                 isPlaying = {this.props.isPlaying}
                 handleChangePlaying = {this.props.handleChangePlaying}
                 />	
-                <VolumeIcon />
-                <VolumeBar />
+                <VolumeIcon 
+                volume = {this.props.volume}
+                MuteSound = {this.props.MuteSound}
+                mute = {this.props.mute}
+                />
+                <VolumeBar
+                UpdateSound = {this.props.UpdateSound}
+                />
+                <Time 
+                currentTime = {this.props.currentTime}
+                videoDuration = {this.props.videoDuration}
+                />
                 <FullScreenIcon 
                 /> 
           </div>

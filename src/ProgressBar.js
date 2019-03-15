@@ -2,6 +2,14 @@ import React from 'react'
 
 export default function ProgressBar(props) {
   return (
-    <input type="range" min = "0" max = "100"  range = "100"  defaultValue="0"  className = "bar" ></input>
+    <input
+        type="range" 
+        min = "0" 
+        max = {props.videoDuration}
+        defaultValue="0" 
+        value={props.currentTime} 
+        className = "bar" 
+        onChange = {props.UpdateProgressBar}
+        ></input>
   )
 }
